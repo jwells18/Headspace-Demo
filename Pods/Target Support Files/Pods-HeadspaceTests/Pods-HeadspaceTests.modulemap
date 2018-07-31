@@ -1,0 +1,6 @@
+framework module Pods_HeadspaceTests {
+  umbrella header "Pods-HeadspaceTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

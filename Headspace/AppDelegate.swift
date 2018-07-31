@@ -8,15 +8,44 @@
 
 import UIKit
 import CoreData
+import Firebase
+import Reachability
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let reachability = Reachability()!
+    var reachabilityView = HSReachabilityView()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //Setup Firebase
+        FirebaseApp.configure()
+        
+        //Set Launch Controller
+        let blankVC = UIViewController()
+        blankVC.view.backgroundColor = .white
+        self.setInitialController(viewController: blankVC)
+        
+        //Setup Employee State Observer
+        _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if Auth.auth().currentUser != nil {
+                //Setup Data Observers
+                self.setupDataObservers()
+                
+                //User is signed in. Set Initial View Controller
+                // Set Initial View Controller
+                self.setInitialController(viewController: self.setupInitialController())
+            }
+            else{
+                //User is not signed in.
+                //For demo purposes, user will be signed in with a test account. In production, it would go to a welcome screen.
+                let usersManager = UsersManager()
+                usersManager.signInAsTestUser()
+            }
+        }
+        
         return true
     }
 
@@ -32,10 +61,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        //Stop listening for Reachability
+        reachability.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        //Start listening for Reachability
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -43,9 +84,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
+    // MARK - Setup Initial Controller
+    func setupInitialController() -> UIViewController{
+        //Setup NavigationControllers for each tab
+        let homeVC = HomeController()
+        let homeNavVC = HSNavigationController.init(rootViewController: homeVC)
+        
+        let discoverVC = DiscoverController()
+        let discoverNavVC = HSNavigationController.init(rootViewController: discoverVC)
+        
+        let profileVC = ProfileController()
+        let profileNavVC = HSNavigationController.init(rootViewController: profileVC)
+        
+        //Setup TabBarController
+        let tabVC = HSTabBarController()
+        tabVC.viewControllers = [homeNavVC, discoverNavVC, profileNavVC]
+        
+        return tabVC
+    }
+    
+    func setInitialController(viewController: UIViewController){
+        //Set TabBarController as Window
+        window?.rootViewController = viewController
+        
+        //Setup ReachabilityView
+        self.reachabilityView.frame = CGRect(x: 0, y: -64, width: UIScreen.main.bounds.width, height: 64)
+        self.window?.addSubview(self.reachabilityView)
+    }
+    
+    func setupDataObservers(){
+        //Setup Data Observers
+        let usersManager = UsersManager()
+        usersManager.createDataObservers()
+        let headspaceManager = HeadspaceManager()
+        headspaceManager.createObservers()
+        let packsManager = PacksManager()
+        packsManager.createDataObservers()
+        let singlesManager = SinglesManager()
+        singlesManager.createDataObservers()
+        let minisManager = MinisManager()
+        minisManager.createDataObservers()
+        let animationsManager = AnimationsManager()
+        animationsManager.createDataObservers()
+    }
+    
+    //Reachability
+    func reachabilityChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+        
+        switch reachability.connection {
+        case .wifi:
+            print("Reachable via WiFi")
+        case .cellular:
+            print("Reachable via Cellular")
+        case .none:
+            print("Network not reachable")
+            //Show notification that network is not reachable
+            UIView.animate(withDuration: 0.3, animations: {
+                self.reachabilityView.frame.origin.y = 0
+            }, completion: { (completed) in
+                UIView.animate(withDuration: 0.3, delay: 3.0, options: UIViewAnimationOptions.init(rawValue: 0), animations: { 
+                    self.reachabilityView.frame.origin.y = -64
+                }, completion: nil)
+            })
+        }
+    }
 
     // MARK: - Core Data stack
-
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation

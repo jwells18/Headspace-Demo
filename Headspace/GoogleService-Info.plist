@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>824066131581-frh8anuj6m1rt6fginjbre1i5ats4c37.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.824066131581-frh8anuj6m1rt6fginjbre1i5ats4c37</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAotZ_ZPyoh8dbh4DkpvtAP2cOgul7ygLU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>824066131581</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>SynergyLabs.com.Headspace</string>
+	<key>PROJECT_ID</key>
+	<string>ticketmaster-23010</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ticketmaster-23010.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:824066131581:ios:97672db5dc8f3251</string>
+	<key>DATABASE_URL</key>
+	<string>https://ticketmaster-23010.firebaseio.com</string>
+</dict>
+</plist>

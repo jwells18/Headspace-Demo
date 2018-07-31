@@ -1,0 +1,113 @@
+/* 
+  Localizable.strings
+  Headspace
+
+  Created by Justin Wells on 7/21/18.
+  Copyright © 2018 SynergyLabs. All rights reserved.
+*/
+
+//Home Controller
+"home" = "Home";
+"begin" = "Begin";
+"day" = "Day";
+"of" = "of";
+"everydayHeadspace" = "Everyday Headspace";
+"tryItForFree" = "Try it for free";
+"minis" = "Minis";
+"myPacks" = "My Packs";
+"recentSingles" = "Recent Singles";
+"peopleGettingHeadspace" = "People Getting Headspace";
+"unlockTheHeadspaceLibrary" = "Unlock the\nHeadspace Library";
+"subscribeNow" = "Subscribe Now";
+"sessions" = "Sessions";
+"viewAllSingles" = "View all singles";
+"min" = "min";
+"addANewPack" = "Add a\nnew pack";
+"readyForNextPack" = "Ready for your next pack?";
+
+//Discover Controller
+"discover" = "Discover";
+"packs" = "Packs";
+"singles" = "Singles";
+"minis" = "Minis";
+"kids" = "Kids";
+"animations" = "Animations";
+"foundation" = "Foundation";
+"health" = "Health";
+"brave" = "Brave";
+"happiness" = "Happiness";
+"workAndPerformance" = "Work & Performance";
+"students" = "Students";
+"headspacePro" = "Headspace Pro";
+"sport" = "Sport";
+"ages5AndUnder" = "Ages 5 and Under";
+"ages6to8" = "Ages 6-8";
+"ages9to12" = "Ages 9-12";
+"featured" = "Featured";
+"learnMore" = "Learn More";
+
+//Profile Controller
+"myStats" = "My Stats";
+"myJourney" = "My Journey";
+"profile" = "Profile";
+"buddies" = "Buddies";
+"addABuddy" = "Add a buddy";
+"currentRunStreak" = "Current run streak";
+"day" = "Day";
+"viewGoals" = "View Goals";
+"totalTimeMeditated" = "Total Time Meditated";
+"sessionsCompleted" = "Sessions Completed";
+"averageDuration" = "Average Duration";
+"minutes" = "minutes";
+"sessions" = "sessions";
+"runStreakGoals" = "Run Streak Goals";
+"noStreakTitle" = "Every day is a chance to train your mind for a happier, healthier life.";
+"subscribeToHeadspace" = "Subscribe to Headspace";
+"NoneCompletionError" = "Get started by visiting the Discover tab.";
+"packsNoneCompletedError" = "There are no completed packs to show yet. Get started by visiting the Discover tab.";
+"singlesNoneCompletedError" = "There is no single progress to show yet. Get started by visiting the Discover tab.";
+"minisNoneCompletedError" = "There is no mini progress to show yet. Get started by visiting the Discover tab.";
+"meditate" = "Meditate";
+
+//Settings Controller
+"settings" = "Settings";
+"notifications" = "Notifications";
+"downloads" = "Downloads";
+"obstacles" = "Obstacles";
+"support" = "Support";
+"termsAndConditions" = "Terms & Conditions";
+"privacyPolicy" = "Privacy Policy";
+"logOut" = "Log Out";
+"loggedInAs" = "Logged in as";
+"version" = "Version";
+
+//Intro Controllers
+"techniques" = "Techniques";
+"sessions" = "Sessions";
+"subscribeToUnlock" = "Subscribe to Unlock";
+"addToMyPacks" = "+ Add to My Packs";
+"startNow" = "Start Now";
+"beginPack" = "Begin Pack";
+"introduction" = "Introduction";
+
+//Subscribe Controller
+"continue" = "Continue";
+"subscribeDisclaimer" = "The subscription will automatically renew unless auto-renew is turned off at least 24 hours before the end of the current period. You can go to your iTunes Account settings to manage your subscription and turn off auto-renew.. Your iTunes Account will be charged when the purchase is confirmed.";
+"monthly" = "Monthly";
+"annual" = "Annual";
+"lifetime" = "Lifetime";
+"perMonth" = "Per Month";
+"perYear" = "Per Year";
+"onePayment" = "One Payment";
+"mostPopular" = "Most\nPopular";
+"recurringBillTitle" = "Recurring billing. Cancel anytime.";
+"thats" = "That's";
+"aMonth" = "a month";
+
+//General
+"noInternetConnection" = "No Internet Connection";
+
+//Feature Unavailable
+"sorry" = "Sorry";
+"featureUnavailableMessage" = "This feature is unavailable";
+"ok" = "OK";
