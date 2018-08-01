@@ -52,6 +52,7 @@ class HomeHeaderCell: UICollectionViewCell{
     }
     
     func setupImageView(){
+        self.imageView.backgroundColor = .lightGray
         self.imageView.contentMode = .scaleAspectFill
         self.imageView.clipsToBounds = true
         self.imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -110,13 +111,17 @@ class HomeHeaderCell: UICollectionViewCell{
             let sessions = pack?.value(forKey: "sessions") as? NSNumber ?? 0
             self.subTitleLabel.text = String(format: "%@ %@ %@ %@", "day".localized(), "1"/*pack.currentLevel*/, "of".localized(), sessions.stringValue)
             self.mainButton.configure(image: UIImage(named: "play"), title: "begin".localized().uppercased())
+            self.mainButton.isHidden = false
         }
         else{
+            //TODO: Finish implementation
+            /*
             self.imageView.image = UIImage(named: "homeHeaderBackground")
             self.titleLabel.text = "readyForNextPack".localized()
             self.titleLabel.textColor = HSColor.primary
             self.subTitleLabel.text = ""
-            self.mainButton.configure(image: nil, title: "discover".localized().uppercased())
+            self.mainButton.configure(image: nil, title: "discover".localized().uppercased())*/
+            self.mainButton.isHidden = true
         }
     }
     

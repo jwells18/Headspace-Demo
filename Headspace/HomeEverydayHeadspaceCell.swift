@@ -53,7 +53,7 @@ class HomeEverydayHeadspaceCell: UICollectionViewCell{
     }
     
     func setupMainButton(){
-        self.mainButton.backgroundColor = HSColor.mustard
+        self.mainButton.backgroundColor = .lightGray
         self.mainButton.clipsToBounds = true
         self.mainButton.contentHorizontalAlignment = .fill
         self.mainButton.contentVerticalAlignment = .fill

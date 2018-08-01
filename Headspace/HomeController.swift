@@ -56,7 +56,7 @@ class HomeController: UIViewController, UICollectionViewDataSource, UICollection
             break
         case false:
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
                 self.downloadData()
             })
             break
