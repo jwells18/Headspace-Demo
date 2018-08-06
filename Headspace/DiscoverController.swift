@@ -221,7 +221,6 @@ class DiscoverController: UIViewController, UICollectionViewDataSource, UICollec
             break
         case _ where indexPath.section > 0:
             var keys = Array(self.singlesDict.keys)
-            keys = keys.sorted(by: <)
             let key = keys[indexPath.section-1]
             let singles = self.singlesDict[key]
             let single = singles?[indexPath.item]
